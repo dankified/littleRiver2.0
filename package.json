@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "webpack": "webpack"
+    "start": "concurrently webpack-dev-server webpack",
+    "webpack": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "concurrently": "^3.5.1",
     "css-loader": "^0.28.11",
     "react-loader": "^2.4.3",
     "style-loader": "^0.20.3",
