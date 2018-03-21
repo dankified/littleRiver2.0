@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/dankified/littleRiver2.0/issues"
   },
-  "homepage": "https://github.com/dankified/littleRiver2.0#readme"
+  "homepage": "https://github.com/dankified/littleRiver2.0#readme",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
 }
-
