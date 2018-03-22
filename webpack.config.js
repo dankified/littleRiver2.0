@@ -7,9 +7,9 @@ module.exports = {
     path: path.resolve(__dirname, './source/dist'),
     filename: 'dist.js'
   },
-  //devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   module: {
-    rules: [
+    rules: [  
       {test: /\.js$/, use: 'babel-loader'},
       {test: /\.css$/, use: ['style-loader', 'css-loader']}
     ]
