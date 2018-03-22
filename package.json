@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently webpack-dev-server webpack",
-    "webpack": "webpack --watch",
+    "start": "webpack-dev-server",
+    "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server --output-public-path=/dist/"
   },
   "repository": {
