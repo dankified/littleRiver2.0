@@ -7,7 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, './source/dist'),
     filename: 'dist.js'
   },
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   module: {
     rules: [  
       {test: /\.js$/, use: 'babel-loader'},
@@ -16,10 +16,5 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin('./source/dist')
-  ],
-  devServer: {
-    contentBase: path.join(__dirname, "./source/"),
-    compress: true,
-    port: 5000
-  }
+  ]
 }
