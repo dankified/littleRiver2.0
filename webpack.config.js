@@ -11,7 +11,7 @@ module.exports = {
 		filename: 'dist.js',
 		chunkFilename: 'commons.js'
   },
-  // devtool: 'inline-source-map',
+  devtool: 'inline-source-map',
   module: {
     rules: [  
 			{test: /\.js$/, include: [path.resolve(__dirname, 'source/components'), path.resolve(__dirname, 'source/js')], use: 'babel-loader'},
