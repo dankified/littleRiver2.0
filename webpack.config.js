@@ -7,7 +7,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: ["./source/js/app.js", "./source/css/styles.css"],
   output: {
-    path: path.resolve(__dirname, './source/dist'),
+    path: path.resolve(__dirname, './source'),
 		filename: 'dist.js',
 		chunkFilename: 'commons.js'
   },
