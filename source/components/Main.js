@@ -8,13 +8,14 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 export default () => {
   return (
     <Router>
-    <div>
-      <Header />
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/contact" component={Contact} />
-    </div>
+      <div>
+        <Header />
+        <div id="content">
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+        </div>
+      </div>
     </Router>
   );
 };
- 
