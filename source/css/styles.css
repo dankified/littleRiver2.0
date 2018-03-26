@@ -51,3 +51,20 @@ header {
 	font-weight: inherit;
 	font-size: 200%;
 }
+
+.menu .item {
+  font-size: 20px;  
+}
+
+#menu-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  #menu-desktop {
+    display: none;
+  }
+  #menu-mobile {
+    display: inline-block;
+  }
+}
