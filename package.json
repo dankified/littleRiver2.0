@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/dankified/littleRiver2.0#readme",
   "dependencies": {
-    "fontawesome": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",

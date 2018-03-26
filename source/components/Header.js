@@ -36,7 +36,7 @@ export default class Header extends Component {
         {/*  */}
         {/* Mobile Menu */}
         <Menu.Menu id="menu-mobile" position="right">
-          <Dropdown item text="Options">
+          <Dropdown item text="" icon="content">
             <Dropdown.Menu>
               <Link className="item" to="/">
                 Home
