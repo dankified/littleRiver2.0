@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "node server.js",
+    "start:dev": "webpack-dev-server",
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server --output-public-path=/dist/"
   },
