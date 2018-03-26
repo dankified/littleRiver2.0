@@ -15,8 +15,8 @@ export default class Header extends Component {
 
   render() {
     return (
-      <Menu>
-        <Menu.Menu position="left">
+      <Menu borderless>
+        <Menu.Menu id="menu-left" position="left">
           <Link className="item" to="/">
             Little River Freisians
           </Link>

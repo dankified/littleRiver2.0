@@ -60,11 +60,22 @@ header {
   display: none;
 }
 
+#menu-desktop {
+  margin-right: 15%;
+}
+
+#menu-left {
+  margin-left: 15%;
+}
+
 @media only screen and (max-width: 768px) {
   #menu-desktop {
     display: none;
   }
   #menu-mobile {
     display: inline-block;
+  }
+  #menu-left {
+    margin-left: 0;
   }
 }

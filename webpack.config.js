@@ -20,7 +20,7 @@ module.exports = {
 	},
 	mode: "development",
   plugins: [
-		new CleanWebpackPlugin('./source/dist'),
+		new CleanWebpackPlugin('./source/dist.js'),
 	],
   devServer: {
     contentBase: path.join(__dirname, "./source/"),
