@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack && node ./server/server.js",
-    "start:dev": "webpack-dev-server",
+    "start": "node ./server/server.js",
+    "proxy": "node ./server/server.js",
+    "start:dev": "concurrently \"webpack-dev-server\" \"npm run proxy\"",
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server --output-public-path=/dist/"
   },
