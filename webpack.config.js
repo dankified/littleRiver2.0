@@ -5,7 +5,7 @@ const webpack = require('webpack');
 // webpack.optimization.splitChunks.chunks = 'all';
 
 module.exports = {
-  entry: ["./source/js/app.js", "./source/css/styles.css"],
+  entry: ["./source/js/app.js", "./source/css/styles.scss"],
   output: {
     path: path.resolve(__dirname, './source'),
 		filename: 'dist.js',
@@ -15,7 +15,7 @@ module.exports = {
   module: {
     rules: [  
 			{test: /\.js$/, include: [path.resolve(__dirname, 'source/components'), path.resolve(__dirname, 'source/js')], use: 'babel-loader'},
-      {test: /\.css$/, include: path.resolve(__dirname, 'source/css'), use: ['style-loader', 'css-loader']}
+      {test: /\.scss$/, include: path.resolve(__dirname, 'source/css'), use: ['style-loader', 'css-loader', 'sass-loader']}
     ]
 	},
 	mode: "development",

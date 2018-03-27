@@ -10,16 +10,18 @@ html,
 body {
   background-color: #fff;
   color: #555;
-  font-family: 'Lato', 'Arial', sans-serif;
+  font-family: "Lato", "Arial", sans-serif;
   font-weight: 300;
   font-size: 62.5%;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
-.clearfix {zoom: 1;}
+.clearfix {
+  zoom: 1;
+}
 .clearfix:after {
-  content: '.';
+  content: ".";
   clear: both;
   display: block;
   height: 0;
@@ -32,24 +34,21 @@ body {
   list-style: none;
   text-align: right;
   height: 4rem;
-}
-
-#menu li {
-  display: inline-block;
-  padding-right: 2vw;
-	color: whitesmoke;
-	padding-top: 1rem;
-}
-
-#menu li a {
-  color: inherit;
-  text-decoration: inherit;
-	font-weight: inherit;
-	font-size: 200%;
+  li {
+    display: inline-block;
+    padding-right: 2vw;
+    color: whitesmoke;
+    padding-top: 1rem;
+    a {
+      color: inherit;
+      text-decoration: inherit;
+      font-weight: inherit;
+    }
+  }
 }
 
 .menu .item {
-  font-size: 2rem; 
+  font-size: 2rem;
 }
 
 #menu-mobile {
@@ -65,10 +64,6 @@ body {
 }
 
 /* Menu end */
-
-#home {
-
-}
 
 #content {
   padding-top: 9rem;
