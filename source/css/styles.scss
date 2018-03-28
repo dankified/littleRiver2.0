@@ -1,3 +1,5 @@
+@import './home.scss';
+
 /* Basic Setup */
 
 * {
@@ -15,8 +17,8 @@ body {
   font-size: 62.5%;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  position: relative;
 }
-
 .clearfix {
   zoom: 1;
 }
@@ -63,26 +65,32 @@ body {
   margin-left: 15%;
 }
 
-/* Menu end */
+/* Header end */
 
 #content {
   padding-top: 9rem;
   margin: 0 17% 0 17%;
 }
 
-/* Mobile configuration */
-@media only screen and (max-width: 768px) {
-  #menu-desktop {
-    display: none;
-  }
-  #menu-mobile {
-    display: inline-block;
-  }
-  #menu-left {
-    margin-left: 0;
-  }
+/* Footer start */
 
-  #content {
-    margin: 0 5% 0 5%;
+footer {
+  background-color: black;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100vw;
+  height: 4rem;
+  text-align: center;
+  p {
+    padding-top:1em;
+    color: antiquewhite;
+    font-size: 2em;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 }
+
+@import './mobileConfig.scss';

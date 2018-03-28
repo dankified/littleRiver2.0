@@ -1,0 +1,20 @@
+/* Mobile configuration */
+@media only screen and (max-width: 768px) {
+  #menu-desktop {
+    display: none;
+  }
+  #menu-mobile {
+    display: inline-block;
+  }
+  #menu-left {
+    margin-left: 0;
+  }
+
+  #content {
+    margin: 0 5% 0 5%;
+  }
+
+  #main-video {
+    display: none;
+  }
+}

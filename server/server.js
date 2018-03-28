@@ -1,12 +1,14 @@
 var express = require("express");
+var bodyParser = require('body-parser');
 
 const mongoose = require("mongoose");
-const keys = require("./config/keys");
+const keys = require("../config/keys");
 
 var path = require("path");
 var app = express();
 
 app.use(express.static("./source"));
+//app.use(bodyParser);
 
 const PORT = process.env.PORT || 4000;
 

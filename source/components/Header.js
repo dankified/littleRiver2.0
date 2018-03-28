@@ -3,14 +3,9 @@ import { Link } from "react-router-dom";
 import { Menu, Dropdown } from "semantic-ui-react";
 const { Item } = Menu;
 
-var menuClickHandler = function(ev) {
-  console.log(ev.target.children);
-};
-
 export default class Header extends Component {
   constructor(props) {
     super(props);
-    this.menuClickHandler = menuClickHandler.bind(this);
   }
 
   render() {
