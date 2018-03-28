@@ -1,7 +1,7 @@
 var express = require("express");
 
 const mongoose = require("mongoose");
-const { user, password } = require("./keys/dbConfig");
+const keys = require("./config/keys");
 
 var path = require("path");
 var app = express();
@@ -18,7 +18,7 @@ app.listen(PORT, () => {
   console.log("Server listening on port", PORT);
   mongoose
     .connect(
-      `mongodb://${user}:${password}@ds125489.mlab.com:25489/little-river`
+      keys.mongoURI
     )
     .then(
       function() {
