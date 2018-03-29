@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server/server.js",
-    "proxy": "node ./server/server.js",
+    "proxy": "nodemon ./server/server.js",
     "start:dev": "concurrently \"webpack-dev-server\" \"npm run proxy\"",
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server --output-public-path=/dist/"
@@ -25,6 +25,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "mongoose": "^5.0.12",
+    "nodemailer": "^4.6.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
@@ -40,6 +41,7 @@
     "concurrently": "^3.5.1",
     "css-loader": "^0.28.11",
     "node-sass": "^4.8.3",
+    "nodemon": "^1.17.2",
     "react-loader": "^2.4.3",
     "react-router-dom": "^4.2.2",
     "sass-loader": "^6.0.7",

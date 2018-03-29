@@ -8,7 +8,7 @@ export default class Home extends Component {
   render() {
     return (
       <div id="home">
-        <video id="main-video" autoplay="true" loop muted="true" src={mainVideoUrl}></video>
+        <video id="main-video" autoPlay="true" loop muted="true" src={mainVideoUrl}></video>
       </div>
     )
   }

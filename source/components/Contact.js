@@ -4,11 +4,18 @@ export default class Contact extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
-      <div>
-        <h1>Contact</h1>
-      </div>
-    )
+      <form
+        method="POST"
+        action="send"
+        id="mail-form"
+      >
+        <input type="text" name="name" />
+        <input type="textarea" name="body" />
+        <input type="submit" value="Submit" />
+      </form>
+    );
   }
 }
