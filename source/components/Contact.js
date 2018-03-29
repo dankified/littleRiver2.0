@@ -7,15 +7,11 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <form
-        method="POST"
-        action="send"
-        id="mail-form"
-      >
-        <input type="text" name="name" />
-        <input type="textarea" name="body" />
-        <input type="submit" value="Submit" />
-      </form>
+      <div id="mail-form-div">
+        <form method="POST" action="send" id="mail-form">
+          <input type="submit" value="Send email" />
+        </form>
+      </div>
     );
   }
 }
