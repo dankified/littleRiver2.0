@@ -16,10 +16,17 @@ let transporter = nodemailer.createTransport({
 
 let mailOptions = {
   from: `"Little River" <${user}>`,
-  to: user,
-  subject: "Information request",
-  text: "Testing",
-  html: "<p>Testing</p>"
+  subject: "Information request"
 };
 
-module.exports = {transporter, mailOptions};
+if (process.env.NODE_ENV === "production") {
+  mailOptions = {
+    to: "littleRiver@yahoo.com"
+  };
+} else {
+  mailOptions = {
+    to: user
+  };
+}
+
+module.exports = { transporter, mailOptions };
