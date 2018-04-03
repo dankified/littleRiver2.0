@@ -37,7 +37,7 @@ export default class Contact extends Component {
         <h2>Contact</h2>
         <p>Little River Friesians, 150 Shady Rest Road, Havana, Florida 32333 | Phone: (305) 476-5151</p>
         <Form>
-          <Form.Input label="Full Name" placeholder="Full Name" type="text" />
+          <Form.Input label="Full Name" required={true} placeholder="Full Name" type="text" />
           <Form.Group widths="equal">
             <Form.Input fluid label="Email" placeholder="Email" />
             <Form.Input fluid label="Phone" placeholder="Phone" />
