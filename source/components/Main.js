@@ -9,7 +9,7 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 export default () => {
   return (
     <Router>
-      <div>
+      <div id="main-div">
         <Header />
         <div id="content">
           <Route exact path="/" component={Home} />
