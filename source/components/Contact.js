@@ -47,8 +47,8 @@ export default class Contact extends Component {
             type="text"
           />
           <Form.Group widths="equal">
-            <Form.Input fluid label="Email" placeholder="Email" />
-            <Form.Input fluid label="Phone" placeholder="Phone" />
+            <Form.Input fluid label="Email" type= "email" placeholder="Email" />
+            <Form.Input fluid label="Phone" type="number" placeholder="Phone" />
           </Form.Group>
           <Form.Group widths="equal">
             <Form.Field>
