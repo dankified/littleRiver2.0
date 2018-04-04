@@ -15,14 +15,16 @@ app.use(express.static("./source"));
 const PORT = process.env.PORT || 4000;
 
 app.post("/send", function(req, res) {
-  transporter.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log("Message sent: %s", info.messageId);
-    console.log("Preview URL: %s", getTestMessageUrl(info));
-    res.send(info);
-  });
+  console.log(req.body);
+  // transporter.sendMail(mailOptions, (err, info) => {
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  //   console.log("Message sent: %s", info.messageId);
+  //   console.log("Preview URL: %s", getTestMessageUrl(info));
+  //   res.send(info);
+  // });
+  res.send('');
 });
 
 app.get(["/", "/about", "/contact"], function(req, res) {

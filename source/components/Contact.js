@@ -20,10 +20,20 @@ function contactOptionChange(ev, data) {
   }
 }
 
+function buildMailDataObject() {
+  var inputs = document.getElementById('contact-form');
+  var mailDataObject = {};
+  for(var i = 0; i < inputs.length; i++) {
+    mailDataObject[inputs[i].name] = inputs[i].value;
+  }
+  console.log(mailDataObject);
+  return mailDataObject;
+}
+
 function sendMail(ev) {
   this.setState({ loading: true });
   ev.preventDefault();
-  axios.post("/send", {}).then(res => this.setState({ loading: false }));
+  axios.post("/send", buildMailDataObject()).then(res => this.setState({ loading: false }));
 }
 
 export default class Contact extends Component {
@@ -36,12 +46,13 @@ export default class Contact extends Component {
     };
     this.contactOptionChange = contactOptionChange.bind(this);
     this.sendMail = sendMail.bind(this);
+    this.buildMailDataObject = buildMailDataObject.bind(this);
   }
 
   render() {
     return (
       <div id="mail-form-div">
-        <Form onSubmit={this.sendMail} loading={this.state.loading}>
+        <Form onSubmit={this.sendMail} loading={this.state.loading} id="contact-form">
           <h2>Contact</h2>
           <p>
             Little River Friesians, 150 Shady Rest Road, Havana, Florida 32333 |
@@ -50,18 +61,20 @@ export default class Contact extends Component {
           <Form.Input
             label="Full Name"
             required={true}
+            name="fullName"
             placeholder="Full Name"
             type="text"
           />
           <Form.Group widths="equal">
-            <Form.Input fluid label="Email" type="email" placeholder="Email" />
-            <Form.Input fluid label="Phone" type="number" placeholder="Phone" />
+            <Form.Input fluid label="Email" name="email" type="email" placeholder="Email" />
+            <Form.Input fluid label="Phone" name="phoneNumber" type="number" placeholder="Phone" />
           </Form.Group>
           <Form.Group widths="equal">
             <Form.Field>
               <label>How would you like to be contacted?</label>
               <Dropdown
                 placeholder="Select Contact Method"
+                name="contactOption"
                 search={false}
                 selection
                 options={options}
@@ -70,6 +83,7 @@ export default class Contact extends Component {
             </Form.Field>
             <Form.Input
               fluid
+              name="otherContactOption"
               label="Other Contact Option"
               placeholder="Other"
               disabled={this.state.otherDisabled}
