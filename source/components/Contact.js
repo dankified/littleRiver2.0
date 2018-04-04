@@ -67,7 +67,7 @@ export default class Contact extends Component {
           />
           <Form.Group widths="equal">
             <Form.Input fluid label="Email" name="email" type="email" placeholder="Email" />
-            <Form.Input fluid label="Phone" name="phoneNumber" type="number" placeholder="Phone" />
+            <Form.Input fluid label="Phone" name="phone" type="number" placeholder="Phone" />
           </Form.Group>
           <Form.Group widths="equal">
             <Form.Field>
@@ -89,7 +89,7 @@ export default class Contact extends Component {
               disabled={this.state.otherDisabled}
             />
           </Form.Group>
-          <Form.TextArea label="Message" placeholder="Message" />
+          <Form.TextArea label="Message" name="message" placeholder="Message" />
           <Button type="submit">Submit</Button>
         </Form>
       </div>

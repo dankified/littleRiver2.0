@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { transporter, mailOptions } = require("./mailer/mailer");
+var { transporter, mailOptions, buildMailOptions } = require("./mailer/mailer");
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
 const {getTestMessageUrl} = require("nodemailer");
@@ -15,16 +15,16 @@ app.use(express.static("./source"));
 const PORT = process.env.PORT || 4000;
 
 app.post("/send", function(req, res) {
-  console.log(req.body);
-  // transporter.sendMail(mailOptions, (err, info) => {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  //   console.log("Message sent: %s", info.messageId);
-  //   console.log("Preview URL: %s", getTestMessageUrl(info));
-  //   res.send(info);
-  // });
-  res.send('');
+	mailOptions = buildMailOptions(req.body, mailOptions);
+	console.log(mailOptions);
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", getTestMessageUrl(info));
+    res.send(info);
+  });
 });
 
 app.get(["/", "/about", "/contact"], function(req, res) {

@@ -16,7 +16,6 @@ let transporter = nodemailer.createTransport({
 
 let mailOptions = {
   from: `"Little River" <${user}>`,
-  subject: "Information request"
 };
 
 if (process.env.NODE_ENV === "production") {
@@ -29,4 +28,20 @@ if (process.env.NODE_ENV === "production") {
   };
 }
 
-module.exports = { transporter, mailOptions };
+function buildMailOptions(clientObject, mailOptions) {
+	mailOptions.subject = `Information request from ${clientObject.fullName}`
+	mailOptions.text = "";
+	if(clientObject.email)
+		mailOptions.text += "email: " + clientObject.email + "\n";
+	if(clientObject.phone)
+		mailOptions.text += "phone: " + clientObject.phone + "\n";
+	if(clientObject.contactOption)
+		mailOptions.text += "contact option: " + clientObject.contactOption + "\n";
+	if(clientObject.otherContactOption)
+		mailOptions.text += "prefered option: " + clientObject.otherContactOption + "\n";
+	if(clientObject.message)
+		mailOptions.text += clientObject.message;
+	return mailOptions;
+}
+
+module.exports = { transporter, mailOptions, buildMailOptions };
