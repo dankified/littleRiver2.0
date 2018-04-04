@@ -18,11 +18,10 @@ app.post("/send", function(req, res) {
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
       console.log(err);
-      res.redirect("/");
     }
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", getTestMessageUrl(info));
-    res.redirect("/");
+    res.send(info);
   });
 });
 
