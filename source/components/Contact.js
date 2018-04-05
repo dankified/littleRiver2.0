@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, Dropdown } from "semantic-ui-react";
+import { Button, Form, Dropdown, Message } from "semantic-ui-react";
 import axios from "axios";
 
 var options = [
@@ -21,19 +21,26 @@ function contactOptionChange(ev, data) {
 }
 
 function buildMailDataObject() {
-  var inputs = document.getElementById('contact-form');
+  var inputs = document.getElementById("contact-form");
   var mailDataObject = {};
-  for(var i = 0; i < inputs.length; i++) {
+  for (var i = 0; i < inputs.length; i++) {
     mailDataObject[inputs[i].name] = inputs[i].value;
   }
-  console.log(mailDataObject);
+  mailDataObject.contactOption = document.getElementById('contact-method-dropdown').children[2].getElementsByClassName('selected')[0].textContent;
   return mailDataObject;
 }
 
 function sendMail(ev) {
-  this.setState({ loading: true });
+  this.setState({ loading: true, errorSending: false, successSending: false });
   ev.preventDefault();
-  axios.post("/send", buildMailDataObject()).then(res => this.setState({ loading: false }));
+  axios.post("/send", buildMailDataObject()).then(
+    res => {
+      this.setState({ loading: false, successSending: true });
+    },
+    res => {
+      this.setState({loading: false, errorSending: true})
+    }
+  );
 }
 
 export default class Contact extends Component {
@@ -42,7 +49,9 @@ export default class Contact extends Component {
     this.state = {
       sending: false,
       otherDisabled: true,
-      loading: false
+      loading: false,
+      errorSending: false,
+      successSending: false
     };
     this.contactOptionChange = contactOptionChange.bind(this);
     this.sendMail = sendMail.bind(this);
@@ -52,7 +61,21 @@ export default class Contact extends Component {
   render() {
     return (
       <div id="mail-form-div">
-        <Form onSubmit={this.sendMail} loading={this.state.loading} id="contact-form">
+        <Message positive hidden={!this.state.successSending}>
+          <Message.Header>Thanks for contacting us!</Message.Header>
+          <p>We will get back to you shortly</p>
+        </Message>
+        <Message negative hidden={!this.state.errorSending}>
+          <Message.Header>
+            There was an error sending your message
+          </Message.Header>
+          <p>Please try again later</p>
+        </Message>
+        <Form
+          onSubmit={this.sendMail}
+          loading={this.state.loading}
+          id="contact-form"
+        >
           <h2>Contact</h2>
           <p>
             Little River Friesians, 150 Shady Rest Road, Havana, Florida 32333 |
@@ -66,13 +89,26 @@ export default class Contact extends Component {
             type="text"
           />
           <Form.Group widths="equal">
-            <Form.Input fluid label="Email" name="email" type="email" placeholder="Email" />
-            <Form.Input fluid label="Phone" name="phone" type="number" placeholder="Phone" />
+            <Form.Input
+              fluid
+              label="Email"
+              name="email"
+              type="email"
+              placeholder="Email"
+            />
+            <Form.Input
+              fluid
+              label="Phone"
+              name="phone"
+              type="number"
+              placeholder="Phone"
+            />
           </Form.Group>
           <Form.Group widths="equal">
             <Form.Field>
               <label>How would you like to be contacted?</label>
               <Dropdown
+                id="contact-method-dropdown"
                 placeholder="Select Contact Method"
                 name="contactOption"
                 search={false}
@@ -90,7 +126,7 @@ export default class Contact extends Component {
             />
           </Form.Group>
           <Form.TextArea label="Message" name="message" placeholder="Message" />
-          <Button type="submit">Submit</Button>
+          <Button size="huge" type="submit">Submit</Button>
         </Form>
       </div>
     );

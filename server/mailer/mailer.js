@@ -38,9 +38,9 @@ function buildMailOptions(clientObject, mailOptions) {
 	if(clientObject.contactOption)
 		mailOptions.text += "contact option: " + clientObject.contactOption + "\n";
 	if(clientObject.otherContactOption)
-		mailOptions.text += "prefered option: " + clientObject.otherContactOption + "\n";
+    mailOptions.text += "prefered option: " + clientObject.otherContactOption + "\n";
 	if(clientObject.message)
-		mailOptions.text += clientObject.message;
+		mailOptions.text += "\n" + clientObject.message;
 	return mailOptions;
 }
 

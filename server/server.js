@@ -15,11 +15,10 @@ app.use(express.static("./source"));
 const PORT = process.env.PORT || 4000;
 
 app.post("/send", function(req, res) {
-	mailOptions = buildMailOptions(req.body, mailOptions);
-	console.log(mailOptions);
+  mailOptions = buildMailOptions(req.body, mailOptions);
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.log(err);
+      res.status(500).send(err);
     }
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", getTestMessageUrl(info));
