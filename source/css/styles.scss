@@ -1,6 +1,8 @@
 @import "./home.scss";
 @import "./contact.scss";
 
+
+
 /* Basic Setup */
 
 * {
@@ -70,26 +72,19 @@ body {
 /* Header end */
 
 #content {
-	margin: 0 17% 0 17%;
-}
-
-#root {
-  height: inherit;
+  margin: 0 17% 0 17%;
 }
 
 #main-div {
 	height: 100%;
-	position: relative;
 }
 
 #content {
   padding: 7rem 0 7rem 0;
 }
 
-/* Footer start */
-
 footer {
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	background-color: black;
   width: 100vw;
@@ -106,4 +101,8 @@ footer {
   }
 }
 
+
+/* Footer start */
 @import "./mobileConfig.scss";
+
+

@@ -26,7 +26,7 @@ app.post("/send", function(req, res) {
   });
 });
 
-app.get(["/", "/about", "/contact"], function(req, res) {
+app.get(["/", "/about", "/contact", "/horses"], function(req, res) {
   res.sendFile(path.resolve(__dirname, "../source/index.html"));
 });
 
