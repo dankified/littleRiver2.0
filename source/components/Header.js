@@ -7,7 +7,6 @@ export default class Header extends Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return (
       <Menu borderless fixed="top">
@@ -27,6 +26,25 @@ export default class Header extends Component {
           <Link className="item" to="/contact">
             Contact
           </Link>
+          <Dropdown item text="Horses">
+            <Dropdown.Menu>
+              <Dropdown.Item text="Geldings">
+                <Link className="horse-menu-item" to="/horses/geldings">
+                  Geldings
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item text="Mares">
+                <Link className="horse-menu-item" to="/horses/mares">
+                  Mares
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item text="Fawns">
+                <Link className="horse-menu-item" to="/horse/fawns">
+                  Fawns
+                </Link>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </Menu.Menu>
         {/*  */}
         {/* Mobile Menu */}
